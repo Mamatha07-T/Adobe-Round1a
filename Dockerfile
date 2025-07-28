@@ -2,10 +2,8 @@ FROM --platform=linux/amd64 python:3.10-slim
 
 WORKDIR /app
 
-COPY extract_entities.py .
+COPY extract_outline.py .
 
-# Install PyMuPDF and spaCy
-RUN pip install pymupdf spacy \
- && python -m spacy download en_core_web_sm
+RUN pip install pymupdf
 
-ENTRYPOINT ["python", "extract_entities.py"]
+ENTRYPOINT ["python", "extract_outline.py"]
